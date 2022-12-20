@@ -1,5 +1,5 @@
-/// <amd-module name="@scom/trader-joe-contract/contracts/JoeERC20.json.ts" />
-declare module "@scom/trader-joe-contract/contracts/JoeERC20.json.ts" {
+/// <amd-module name="@scom/oswap-trader-joe-contract/contracts/JoeERC20.json.ts" />
+declare module "@scom/oswap-trader-joe-contract/contracts/JoeERC20.json.ts" {
     const _default: {
         abi: ({
             inputs: any[];
@@ -40,8 +40,8 @@ declare module "@scom/trader-joe-contract/contracts/JoeERC20.json.ts" {
     };
     export default _default;
 }
-/// <amd-module name="@scom/trader-joe-contract/contracts/JoeERC20.ts" />
-declare module "@scom/trader-joe-contract/contracts/JoeERC20.ts" {
+/// <amd-module name="@scom/oswap-trader-joe-contract/contracts/JoeERC20.ts" />
+declare module "@scom/oswap-trader-joe-contract/contracts/JoeERC20.ts" {
     import { IWallet, Contract as _Contract, TransactionReceipt, BigNumber, Event, TransactionOptions } from "@ijstech/eth-contract";
     export interface IAllowanceParams {
         param1: string;
@@ -137,8 +137,8 @@ declare module "@scom/trader-joe-contract/contracts/JoeERC20.ts" {
         }
     }
 }
-/// <amd-module name="@scom/trader-joe-contract/contracts/JoeFactory.json.ts" />
-declare module "@scom/trader-joe-contract/contracts/JoeFactory.json.ts" {
+/// <amd-module name="@scom/oswap-trader-joe-contract/contracts/JoeFactory.json.ts" />
+declare module "@scom/oswap-trader-joe-contract/contracts/JoeFactory.json.ts" {
     const _default_1: {
         abi: ({
             inputs: {
@@ -183,8 +183,8 @@ declare module "@scom/trader-joe-contract/contracts/JoeFactory.json.ts" {
     };
     export default _default_1;
 }
-/// <amd-module name="@scom/trader-joe-contract/contracts/JoeFactory.ts" />
-declare module "@scom/trader-joe-contract/contracts/JoeFactory.ts" {
+/// <amd-module name="@scom/oswap-trader-joe-contract/contracts/JoeFactory.ts" />
+declare module "@scom/oswap-trader-joe-contract/contracts/JoeFactory.ts" {
     import { IWallet, Contract as _Contract, TransactionReceipt, BigNumber, Event, TransactionOptions } from "@ijstech/eth-contract";
     export interface ICreatePairParams {
         tokenA: string;
@@ -249,8 +249,8 @@ declare module "@scom/trader-joe-contract/contracts/JoeFactory.ts" {
         }
     }
 }
-/// <amd-module name="@scom/trader-joe-contract/contracts/JoePair.json.ts" />
-declare module "@scom/trader-joe-contract/contracts/JoePair.json.ts" {
+/// <amd-module name="@scom/oswap-trader-joe-contract/contracts/JoePair.json.ts" />
+declare module "@scom/oswap-trader-joe-contract/contracts/JoePair.json.ts" {
     const _default_2: {
         abi: ({
             inputs: any[];
@@ -291,8 +291,8 @@ declare module "@scom/trader-joe-contract/contracts/JoePair.json.ts" {
     };
     export default _default_2;
 }
-/// <amd-module name="@scom/trader-joe-contract/contracts/JoePair.ts" />
-declare module "@scom/trader-joe-contract/contracts/JoePair.ts" {
+/// <amd-module name="@scom/oswap-trader-joe-contract/contracts/JoePair.ts" />
+declare module "@scom/oswap-trader-joe-contract/contracts/JoePair.ts" {
     import { IWallet, Contract as _Contract, TransactionReceipt, BigNumber, Event, TransactionOptions } from "@ijstech/eth-contract";
     export interface IAllowanceParams {
         param1: string;
@@ -488,8 +488,8 @@ declare module "@scom/trader-joe-contract/contracts/JoePair.ts" {
         }
     }
 }
-/// <amd-module name="@scom/trader-joe-contract/contracts/JoeRouter02.json.ts" />
-declare module "@scom/trader-joe-contract/contracts/JoeRouter02.json.ts" {
+/// <amd-module name="@scom/oswap-trader-joe-contract/contracts/JoeRouter02.json.ts" />
+declare module "@scom/oswap-trader-joe-contract/contracts/JoeRouter02.json.ts" {
     const _default_3: {
         abi: ({
             inputs: {
@@ -526,8 +526,8 @@ declare module "@scom/trader-joe-contract/contracts/JoeRouter02.json.ts" {
     };
     export default _default_3;
 }
-/// <amd-module name="@scom/trader-joe-contract/contracts/JoeRouter02.ts" />
-declare module "@scom/trader-joe-contract/contracts/JoeRouter02.ts" {
+/// <amd-module name="@scom/oswap-trader-joe-contract/contracts/JoeRouter02.ts" />
+declare module "@scom/oswap-trader-joe-contract/contracts/JoeRouter02.ts" {
     import { IWallet, Contract as _Contract, TransactionReceipt, BigNumber, TransactionOptions } from "@ijstech/eth-contract";
     export interface IDeployParams {
         factory: string;
@@ -812,14 +812,14 @@ declare module "@scom/trader-joe-contract/contracts/JoeRouter02.ts" {
         private assign;
     }
 }
-/// <amd-module name="@scom/trader-joe-contract/contracts/index.ts" />
-declare module "@scom/trader-joe-contract/contracts/index.ts" {
-    export { JoeERC20 } from "@scom/trader-joe-contract/contracts/JoeERC20.ts";
-    export { JoeFactory } from "@scom/trader-joe-contract/contracts/JoeFactory.ts";
-    export { JoePair } from "@scom/trader-joe-contract/contracts/JoePair.ts";
-    export { JoeRouter02 } from "@scom/trader-joe-contract/contracts/JoeRouter02.ts";
+/// <amd-module name="@scom/oswap-trader-joe-contract/contracts/index.ts" />
+declare module "@scom/oswap-trader-joe-contract/contracts/index.ts" {
+    export { JoeERC20 } from "@scom/oswap-trader-joe-contract/contracts/JoeERC20.ts";
+    export { JoeFactory } from "@scom/oswap-trader-joe-contract/contracts/JoeFactory.ts";
+    export { JoePair } from "@scom/oswap-trader-joe-contract/contracts/JoePair.ts";
+    export { JoeRouter02 } from "@scom/oswap-trader-joe-contract/contracts/JoeRouter02.ts";
 }
-/// <amd-module name="@scom/trader-joe-contract" />
-declare module "@scom/trader-joe-contract" {
-    export * as Contracts from "@scom/trader-joe-contract/contracts/index.ts";
+/// <amd-module name="@scom/oswap-trader-joe-contract" />
+declare module "@scom/oswap-trader-joe-contract" {
+    export * as Contracts from "@scom/oswap-trader-joe-contract/contracts/index.ts";
 }
