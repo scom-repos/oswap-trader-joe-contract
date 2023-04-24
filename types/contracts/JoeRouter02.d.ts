@@ -180,6 +180,7 @@ export declare class JoeRouter02 extends _Contract {
             amountB: BigNumber;
             liquidity: BigNumber;
         }>;
+        txData: (params: IAddLiquidityParams, options?: TransactionOptions) => Promise<string>;
     };
     addLiquidityAVAX: {
         (params: IAddLiquidityAVAXParams, options?: number | BigNumber | TransactionOptions): Promise<TransactionReceipt>;
@@ -188,6 +189,7 @@ export declare class JoeRouter02 extends _Contract {
             amountAVAX: BigNumber;
             liquidity: BigNumber;
         }>;
+        txData: (params: IAddLiquidityAVAXParams, options?: number | BigNumber | TransactionOptions) => Promise<string>;
     };
     factory: {
         (options?: TransactionOptions): Promise<string>;
@@ -213,6 +215,7 @@ export declare class JoeRouter02 extends _Contract {
             amountA: BigNumber;
             amountB: BigNumber;
         }>;
+        txData: (params: IRemoveLiquidityParams, options?: TransactionOptions) => Promise<string>;
     };
     removeLiquidityAVAX: {
         (params: IRemoveLiquidityAVAXParams, options?: TransactionOptions): Promise<TransactionReceipt>;
@@ -220,10 +223,12 @@ export declare class JoeRouter02 extends _Contract {
             amountToken: BigNumber;
             amountAVAX: BigNumber;
         }>;
+        txData: (params: IRemoveLiquidityAVAXParams, options?: TransactionOptions) => Promise<string>;
     };
     removeLiquidityAVAXSupportingFeeOnTransferTokens: {
         (params: IRemoveLiquidityAVAXSupportingFeeOnTransferTokensParams, options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (params: IRemoveLiquidityAVAXSupportingFeeOnTransferTokensParams, options?: TransactionOptions) => Promise<BigNumber>;
+        txData: (params: IRemoveLiquidityAVAXSupportingFeeOnTransferTokensParams, options?: TransactionOptions) => Promise<string>;
     };
     removeLiquidityAVAXWithPermit: {
         (params: IRemoveLiquidityAVAXWithPermitParams, options?: TransactionOptions): Promise<TransactionReceipt>;
@@ -231,10 +236,12 @@ export declare class JoeRouter02 extends _Contract {
             amountToken: BigNumber;
             amountAVAX: BigNumber;
         }>;
+        txData: (params: IRemoveLiquidityAVAXWithPermitParams, options?: TransactionOptions) => Promise<string>;
     };
     removeLiquidityAVAXWithPermitSupportingFeeOnTransferTokens: {
         (params: IRemoveLiquidityAVAXWithPermitSupportingFeeOnTransferTokensParams, options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (params: IRemoveLiquidityAVAXWithPermitSupportingFeeOnTransferTokensParams, options?: TransactionOptions) => Promise<BigNumber>;
+        txData: (params: IRemoveLiquidityAVAXWithPermitSupportingFeeOnTransferTokensParams, options?: TransactionOptions) => Promise<string>;
     };
     removeLiquidityWithPermit: {
         (params: IRemoveLiquidityWithPermitParams, options?: TransactionOptions): Promise<TransactionReceipt>;
@@ -242,42 +249,52 @@ export declare class JoeRouter02 extends _Contract {
             amountA: BigNumber;
             amountB: BigNumber;
         }>;
+        txData: (params: IRemoveLiquidityWithPermitParams, options?: TransactionOptions) => Promise<string>;
     };
     swapAVAXForExactTokens: {
         (params: ISwapAVAXForExactTokensParams, options?: number | BigNumber | TransactionOptions): Promise<TransactionReceipt>;
         call: (params: ISwapAVAXForExactTokensParams, options?: number | BigNumber | TransactionOptions) => Promise<BigNumber[]>;
+        txData: (params: ISwapAVAXForExactTokensParams, options?: number | BigNumber | TransactionOptions) => Promise<string>;
     };
     swapExactAVAXForTokens: {
         (params: ISwapExactAVAXForTokensParams, options?: number | BigNumber | TransactionOptions): Promise<TransactionReceipt>;
         call: (params: ISwapExactAVAXForTokensParams, options?: number | BigNumber | TransactionOptions) => Promise<BigNumber[]>;
+        txData: (params: ISwapExactAVAXForTokensParams, options?: number | BigNumber | TransactionOptions) => Promise<string>;
     };
     swapExactAVAXForTokensSupportingFeeOnTransferTokens: {
         (params: ISwapExactAVAXForTokensSupportingFeeOnTransferTokensParams, options?: number | BigNumber | TransactionOptions): Promise<TransactionReceipt>;
         call: (params: ISwapExactAVAXForTokensSupportingFeeOnTransferTokensParams, options?: number | BigNumber | TransactionOptions) => Promise<void>;
+        txData: (params: ISwapExactAVAXForTokensSupportingFeeOnTransferTokensParams, options?: number | BigNumber | TransactionOptions) => Promise<string>;
     };
     swapExactTokensForAVAX: {
         (params: ISwapExactTokensForAVAXParams, options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (params: ISwapExactTokensForAVAXParams, options?: TransactionOptions) => Promise<BigNumber[]>;
+        txData: (params: ISwapExactTokensForAVAXParams, options?: TransactionOptions) => Promise<string>;
     };
     swapExactTokensForAVAXSupportingFeeOnTransferTokens: {
         (params: ISwapExactTokensForAVAXSupportingFeeOnTransferTokensParams, options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (params: ISwapExactTokensForAVAXSupportingFeeOnTransferTokensParams, options?: TransactionOptions) => Promise<void>;
+        txData: (params: ISwapExactTokensForAVAXSupportingFeeOnTransferTokensParams, options?: TransactionOptions) => Promise<string>;
     };
     swapExactTokensForTokens: {
         (params: ISwapExactTokensForTokensParams, options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (params: ISwapExactTokensForTokensParams, options?: TransactionOptions) => Promise<BigNumber[]>;
+        txData: (params: ISwapExactTokensForTokensParams, options?: TransactionOptions) => Promise<string>;
     };
     swapExactTokensForTokensSupportingFeeOnTransferTokens: {
         (params: ISwapExactTokensForTokensSupportingFeeOnTransferTokensParams, options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (params: ISwapExactTokensForTokensSupportingFeeOnTransferTokensParams, options?: TransactionOptions) => Promise<void>;
+        txData: (params: ISwapExactTokensForTokensSupportingFeeOnTransferTokensParams, options?: TransactionOptions) => Promise<string>;
     };
     swapTokensForExactAVAX: {
         (params: ISwapTokensForExactAVAXParams, options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (params: ISwapTokensForExactAVAXParams, options?: TransactionOptions) => Promise<BigNumber[]>;
+        txData: (params: ISwapTokensForExactAVAXParams, options?: TransactionOptions) => Promise<string>;
     };
     swapTokensForExactTokens: {
         (params: ISwapTokensForExactTokensParams, options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (params: ISwapTokensForExactTokensParams, options?: TransactionOptions) => Promise<BigNumber[]>;
+        txData: (params: ISwapTokensForExactTokensParams, options?: TransactionOptions) => Promise<string>;
     };
     private assign;
 }

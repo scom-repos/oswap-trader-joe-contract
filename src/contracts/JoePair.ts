@@ -106,6 +106,7 @@ export class JoePair extends _Contract{
     approve: {
         (params: IApproveParams, options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (params: IApproveParams, options?: TransactionOptions) => Promise<boolean>;
+        txData: (params: IApproveParams, options?: TransactionOptions) => Promise<string>;
     }
     balanceOf: {
         (param1:string, options?: TransactionOptions): Promise<BigNumber>;
@@ -113,6 +114,7 @@ export class JoePair extends _Contract{
     burn: {
         (to:string, options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (to:string, options?: TransactionOptions) => Promise<{amount0:BigNumber,amount1:BigNumber}>;
+        txData: (to:string, options?: TransactionOptions) => Promise<string>;
     }
     decimals: {
         (options?: TransactionOptions): Promise<BigNumber>;
@@ -121,11 +123,12 @@ export class JoePair extends _Contract{
         (options?: TransactionOptions): Promise<string>;
     }
     getReserves: {
-        (options?: TransactionOptions): Promise<{_reserve0:BigNumber,_reserve1:BigNumber,_blockTimestampLast:BigNumber}>;
+        (options?: TransactionOptions): Promise<{reserve0:BigNumber,reserve1:BigNumber,blockTimestampLast:BigNumber}>;
     }
     initialize: {
         (params: IInitializeParams, options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (params: IInitializeParams, options?: TransactionOptions) => Promise<void>;
+        txData: (params: IInitializeParams, options?: TransactionOptions) => Promise<string>;
     }
     kLast: {
         (options?: TransactionOptions): Promise<BigNumber>;
@@ -133,6 +136,7 @@ export class JoePair extends _Contract{
     mint: {
         (to:string, options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (to:string, options?: TransactionOptions) => Promise<BigNumber>;
+        txData: (to:string, options?: TransactionOptions) => Promise<string>;
     }
     name: {
         (options?: TransactionOptions): Promise<string>;
@@ -143,6 +147,7 @@ export class JoePair extends _Contract{
     permit: {
         (params: IPermitParams, options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (params: IPermitParams, options?: TransactionOptions) => Promise<void>;
+        txData: (params: IPermitParams, options?: TransactionOptions) => Promise<string>;
     }
     price0CumulativeLast: {
         (options?: TransactionOptions): Promise<BigNumber>;
@@ -153,10 +158,12 @@ export class JoePair extends _Contract{
     skim: {
         (to:string, options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (to:string, options?: TransactionOptions) => Promise<void>;
+        txData: (to:string, options?: TransactionOptions) => Promise<string>;
     }
     swap: {
         (params: ISwapParams, options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (params: ISwapParams, options?: TransactionOptions) => Promise<void>;
+        txData: (params: ISwapParams, options?: TransactionOptions) => Promise<string>;
     }
     symbol: {
         (options?: TransactionOptions): Promise<string>;
@@ -164,6 +171,7 @@ export class JoePair extends _Contract{
     sync: {
         (options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (options?: TransactionOptions) => Promise<void>;
+        txData: (options?: TransactionOptions) => Promise<string>;
     }
     token0: {
         (options?: TransactionOptions): Promise<string>;
@@ -177,10 +185,12 @@ export class JoePair extends _Contract{
     transfer: {
         (params: ITransferParams, options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (params: ITransferParams, options?: TransactionOptions) => Promise<boolean>;
+        txData: (params: ITransferParams, options?: TransactionOptions) => Promise<string>;
     }
     transferFrom: {
         (params: ITransferFromParams, options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (params: ITransferFromParams, options?: TransactionOptions) => Promise<boolean>;
+        txData: (params: ITransferFromParams, options?: TransactionOptions) => Promise<string>;
     }
     private assign(){
         let DOMAIN_SEPARATOR_call = async (options?: TransactionOptions): Promise<string> => {
@@ -219,12 +229,12 @@ export class JoePair extends _Contract{
             return result;
         }
         this.factory = factory_call
-        let getReserves_call = async (options?: TransactionOptions): Promise<{_reserve0:BigNumber,_reserve1:BigNumber,_blockTimestampLast:BigNumber}> => {
+        let getReserves_call = async (options?: TransactionOptions): Promise<{reserve0:BigNumber,reserve1:BigNumber,blockTimestampLast:BigNumber}> => {
             let result = await this.call('getReserves',[],options);
             return {
-                _reserve0: new BigNumber(result._reserve0),
-                _reserve1: new BigNumber(result._reserve1),
-                _blockTimestampLast: new BigNumber(result._blockTimestampLast)
+                reserve0: new BigNumber(result._reserve0),
+                reserve1: new BigNumber(result._reserve1),
+                blockTimestampLast: new BigNumber(result._blockTimestampLast)
             };
         }
         this.getReserves = getReserves_call
@@ -282,8 +292,13 @@ export class JoePair extends _Contract{
             let result = await this.call('approve',approveParams(params),options);
             return result;
         }
+        let approve_txData = async (params: IApproveParams, options?: TransactionOptions): Promise<string> => {
+            let result = await this.txData('approve',approveParams(params),options);
+            return result;
+        }
         this.approve = Object.assign(approve_send, {
             call:approve_call
+            , txData:approve_txData
         });
         let burn_send = async (to:string, options?: TransactionOptions): Promise<TransactionReceipt> => {
             let result = await this.send('burn',[to],options);
@@ -296,8 +311,13 @@ export class JoePair extends _Contract{
                 amount1: new BigNumber(result.amount1)
             };
         }
+        let burn_txData = async (to:string, options?: TransactionOptions): Promise<string> => {
+            let result = await this.txData('burn',[to],options);
+            return result;
+        }
         this.burn = Object.assign(burn_send, {
             call:burn_call
+            , txData:burn_txData
         });
         let initializeParams = (params: IInitializeParams) => [params.token0,params.token1];
         let initialize_send = async (params: IInitializeParams, options?: TransactionOptions): Promise<TransactionReceipt> => {
@@ -308,8 +328,13 @@ export class JoePair extends _Contract{
             let result = await this.call('initialize',initializeParams(params),options);
             return;
         }
+        let initialize_txData = async (params: IInitializeParams, options?: TransactionOptions): Promise<string> => {
+            let result = await this.txData('initialize',initializeParams(params),options);
+            return result;
+        }
         this.initialize = Object.assign(initialize_send, {
             call:initialize_call
+            , txData:initialize_txData
         });
         let mint_send = async (to:string, options?: TransactionOptions): Promise<TransactionReceipt> => {
             let result = await this.send('mint',[to],options);
@@ -319,8 +344,13 @@ export class JoePair extends _Contract{
             let result = await this.call('mint',[to],options);
             return new BigNumber(result);
         }
+        let mint_txData = async (to:string, options?: TransactionOptions): Promise<string> => {
+            let result = await this.txData('mint',[to],options);
+            return result;
+        }
         this.mint = Object.assign(mint_send, {
             call:mint_call
+            , txData:mint_txData
         });
         let permitParams = (params: IPermitParams) => [params.owner,params.spender,this.wallet.utils.toString(params.value),this.wallet.utils.toString(params.deadline),this.wallet.utils.toString(params.v),this.wallet.utils.stringToBytes32(params.r),this.wallet.utils.stringToBytes32(params.s)];
         let permit_send = async (params: IPermitParams, options?: TransactionOptions): Promise<TransactionReceipt> => {
@@ -331,8 +361,13 @@ export class JoePair extends _Contract{
             let result = await this.call('permit',permitParams(params),options);
             return;
         }
+        let permit_txData = async (params: IPermitParams, options?: TransactionOptions): Promise<string> => {
+            let result = await this.txData('permit',permitParams(params),options);
+            return result;
+        }
         this.permit = Object.assign(permit_send, {
             call:permit_call
+            , txData:permit_txData
         });
         let skim_send = async (to:string, options?: TransactionOptions): Promise<TransactionReceipt> => {
             let result = await this.send('skim',[to],options);
@@ -342,8 +377,13 @@ export class JoePair extends _Contract{
             let result = await this.call('skim',[to],options);
             return;
         }
+        let skim_txData = async (to:string, options?: TransactionOptions): Promise<string> => {
+            let result = await this.txData('skim',[to],options);
+            return result;
+        }
         this.skim = Object.assign(skim_send, {
             call:skim_call
+            , txData:skim_txData
         });
         let swapParams = (params: ISwapParams) => [this.wallet.utils.toString(params.amount0Out),this.wallet.utils.toString(params.amount1Out),params.to,this.wallet.utils.stringToBytes(params.data)];
         let swap_send = async (params: ISwapParams, options?: TransactionOptions): Promise<TransactionReceipt> => {
@@ -354,8 +394,13 @@ export class JoePair extends _Contract{
             let result = await this.call('swap',swapParams(params),options);
             return;
         }
+        let swap_txData = async (params: ISwapParams, options?: TransactionOptions): Promise<string> => {
+            let result = await this.txData('swap',swapParams(params),options);
+            return result;
+        }
         this.swap = Object.assign(swap_send, {
             call:swap_call
+            , txData:swap_txData
         });
         let sync_send = async (options?: TransactionOptions): Promise<TransactionReceipt> => {
             let result = await this.send('sync',[],options);
@@ -365,8 +410,13 @@ export class JoePair extends _Contract{
             let result = await this.call('sync',[],options);
             return;
         }
+        let sync_txData = async (options?: TransactionOptions): Promise<string> => {
+            let result = await this.txData('sync',[],options);
+            return result;
+        }
         this.sync = Object.assign(sync_send, {
             call:sync_call
+            , txData:sync_txData
         });
         let transferParams = (params: ITransferParams) => [params.to,this.wallet.utils.toString(params.value)];
         let transfer_send = async (params: ITransferParams, options?: TransactionOptions): Promise<TransactionReceipt> => {
@@ -377,8 +427,13 @@ export class JoePair extends _Contract{
             let result = await this.call('transfer',transferParams(params),options);
             return result;
         }
+        let transfer_txData = async (params: ITransferParams, options?: TransactionOptions): Promise<string> => {
+            let result = await this.txData('transfer',transferParams(params),options);
+            return result;
+        }
         this.transfer = Object.assign(transfer_send, {
             call:transfer_call
+            , txData:transfer_txData
         });
         let transferFromParams = (params: ITransferFromParams) => [params.from,params.to,this.wallet.utils.toString(params.value)];
         let transferFrom_send = async (params: ITransferFromParams, options?: TransactionOptions): Promise<TransactionReceipt> => {
@@ -389,8 +444,13 @@ export class JoePair extends _Contract{
             let result = await this.call('transferFrom',transferFromParams(params),options);
             return result;
         }
+        let transferFrom_txData = async (params: ITransferFromParams, options?: TransactionOptions): Promise<string> => {
+            let result = await this.txData('transferFrom',transferFromParams(params),options);
+            return result;
+        }
         this.transferFrom = Object.assign(transferFrom_send, {
             call:transferFrom_call
+            , txData:transferFrom_txData
         });
     }
 }

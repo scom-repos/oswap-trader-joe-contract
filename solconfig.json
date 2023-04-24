@@ -3,5 +3,6 @@
     "optimizerRuns": 200,
     "sourceDir": "contracts",
     "outputDir": "src/contracts",
+    "outputOptions": {"txData":true},
     "outputObjects": "bytecode"
 }

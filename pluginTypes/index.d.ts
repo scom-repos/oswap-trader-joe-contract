@@ -89,6 +89,7 @@ declare module "@scom/oswap-trader-joe-contract/contracts/JoeERC20.ts" {
         approve: {
             (params: IApproveParams, options?: TransactionOptions): Promise<TransactionReceipt>;
             call: (params: IApproveParams, options?: TransactionOptions) => Promise<boolean>;
+            txData: (params: IApproveParams, options?: TransactionOptions) => Promise<string>;
         };
         balanceOf: {
             (param1: string, options?: TransactionOptions): Promise<BigNumber>;
@@ -105,6 +106,7 @@ declare module "@scom/oswap-trader-joe-contract/contracts/JoeERC20.ts" {
         permit: {
             (params: IPermitParams, options?: TransactionOptions): Promise<TransactionReceipt>;
             call: (params: IPermitParams, options?: TransactionOptions) => Promise<void>;
+            txData: (params: IPermitParams, options?: TransactionOptions) => Promise<string>;
         };
         symbol: {
             (options?: TransactionOptions): Promise<string>;
@@ -115,10 +117,12 @@ declare module "@scom/oswap-trader-joe-contract/contracts/JoeERC20.ts" {
         transfer: {
             (params: ITransferParams, options?: TransactionOptions): Promise<TransactionReceipt>;
             call: (params: ITransferParams, options?: TransactionOptions) => Promise<boolean>;
+            txData: (params: ITransferParams, options?: TransactionOptions) => Promise<string>;
         };
         transferFrom: {
             (params: ITransferFromParams, options?: TransactionOptions): Promise<TransactionReceipt>;
             call: (params: ITransferFromParams, options?: TransactionOptions) => Promise<boolean>;
+            txData: (params: ITransferFromParams, options?: TransactionOptions) => Promise<string>;
         };
         private assign;
     }
@@ -209,6 +213,7 @@ declare module "@scom/oswap-trader-joe-contract/contracts/JoeFactory.ts" {
         createPair: {
             (params: ICreatePairParams, options?: TransactionOptions): Promise<TransactionReceipt>;
             call: (params: ICreatePairParams, options?: TransactionOptions) => Promise<string>;
+            txData: (params: ICreatePairParams, options?: TransactionOptions) => Promise<string>;
         };
         feeTo: {
             (options?: TransactionOptions): Promise<string>;
@@ -228,14 +233,17 @@ declare module "@scom/oswap-trader-joe-contract/contracts/JoeFactory.ts" {
         setFeeTo: {
             (feeTo: string, options?: TransactionOptions): Promise<TransactionReceipt>;
             call: (feeTo: string, options?: TransactionOptions) => Promise<void>;
+            txData: (feeTo: string, options?: TransactionOptions) => Promise<string>;
         };
         setFeeToSetter: {
             (feeToSetter: string, options?: TransactionOptions): Promise<TransactionReceipt>;
             call: (feeToSetter: string, options?: TransactionOptions) => Promise<void>;
+            txData: (feeToSetter: string, options?: TransactionOptions) => Promise<string>;
         };
         setMigrator: {
             (migrator: string, options?: TransactionOptions): Promise<TransactionReceipt>;
             call: (migrator: string, options?: TransactionOptions) => Promise<void>;
+            txData: (migrator: string, options?: TransactionOptions) => Promise<string>;
         };
         private assign;
     }
@@ -361,6 +369,7 @@ declare module "@scom/oswap-trader-joe-contract/contracts/JoePair.ts" {
         approve: {
             (params: IApproveParams, options?: TransactionOptions): Promise<TransactionReceipt>;
             call: (params: IApproveParams, options?: TransactionOptions) => Promise<boolean>;
+            txData: (params: IApproveParams, options?: TransactionOptions) => Promise<string>;
         };
         balanceOf: {
             (param1: string, options?: TransactionOptions): Promise<BigNumber>;
@@ -371,6 +380,7 @@ declare module "@scom/oswap-trader-joe-contract/contracts/JoePair.ts" {
                 amount0: BigNumber;
                 amount1: BigNumber;
             }>;
+            txData: (to: string, options?: TransactionOptions) => Promise<string>;
         };
         decimals: {
             (options?: TransactionOptions): Promise<BigNumber>;
@@ -380,14 +390,15 @@ declare module "@scom/oswap-trader-joe-contract/contracts/JoePair.ts" {
         };
         getReserves: {
             (options?: TransactionOptions): Promise<{
-                _reserve0: BigNumber;
-                _reserve1: BigNumber;
-                _blockTimestampLast: BigNumber;
+                reserve0: BigNumber;
+                reserve1: BigNumber;
+                blockTimestampLast: BigNumber;
             }>;
         };
         initialize: {
             (params: IInitializeParams, options?: TransactionOptions): Promise<TransactionReceipt>;
             call: (params: IInitializeParams, options?: TransactionOptions) => Promise<void>;
+            txData: (params: IInitializeParams, options?: TransactionOptions) => Promise<string>;
         };
         kLast: {
             (options?: TransactionOptions): Promise<BigNumber>;
@@ -395,6 +406,7 @@ declare module "@scom/oswap-trader-joe-contract/contracts/JoePair.ts" {
         mint: {
             (to: string, options?: TransactionOptions): Promise<TransactionReceipt>;
             call: (to: string, options?: TransactionOptions) => Promise<BigNumber>;
+            txData: (to: string, options?: TransactionOptions) => Promise<string>;
         };
         name: {
             (options?: TransactionOptions): Promise<string>;
@@ -405,6 +417,7 @@ declare module "@scom/oswap-trader-joe-contract/contracts/JoePair.ts" {
         permit: {
             (params: IPermitParams, options?: TransactionOptions): Promise<TransactionReceipt>;
             call: (params: IPermitParams, options?: TransactionOptions) => Promise<void>;
+            txData: (params: IPermitParams, options?: TransactionOptions) => Promise<string>;
         };
         price0CumulativeLast: {
             (options?: TransactionOptions): Promise<BigNumber>;
@@ -415,10 +428,12 @@ declare module "@scom/oswap-trader-joe-contract/contracts/JoePair.ts" {
         skim: {
             (to: string, options?: TransactionOptions): Promise<TransactionReceipt>;
             call: (to: string, options?: TransactionOptions) => Promise<void>;
+            txData: (to: string, options?: TransactionOptions) => Promise<string>;
         };
         swap: {
             (params: ISwapParams, options?: TransactionOptions): Promise<TransactionReceipt>;
             call: (params: ISwapParams, options?: TransactionOptions) => Promise<void>;
+            txData: (params: ISwapParams, options?: TransactionOptions) => Promise<string>;
         };
         symbol: {
             (options?: TransactionOptions): Promise<string>;
@@ -426,6 +441,7 @@ declare module "@scom/oswap-trader-joe-contract/contracts/JoePair.ts" {
         sync: {
             (options?: TransactionOptions): Promise<TransactionReceipt>;
             call: (options?: TransactionOptions) => Promise<void>;
+            txData: (options?: TransactionOptions) => Promise<string>;
         };
         token0: {
             (options?: TransactionOptions): Promise<string>;
@@ -439,10 +455,12 @@ declare module "@scom/oswap-trader-joe-contract/contracts/JoePair.ts" {
         transfer: {
             (params: ITransferParams, options?: TransactionOptions): Promise<TransactionReceipt>;
             call: (params: ITransferParams, options?: TransactionOptions) => Promise<boolean>;
+            txData: (params: ITransferParams, options?: TransactionOptions) => Promise<string>;
         };
         transferFrom: {
             (params: ITransferFromParams, options?: TransactionOptions): Promise<TransactionReceipt>;
             call: (params: ITransferFromParams, options?: TransactionOptions) => Promise<boolean>;
+            txData: (params: ITransferFromParams, options?: TransactionOptions) => Promise<string>;
         };
         private assign;
     }
@@ -710,6 +728,7 @@ declare module "@scom/oswap-trader-joe-contract/contracts/JoeRouter02.ts" {
                 amountB: BigNumber;
                 liquidity: BigNumber;
             }>;
+            txData: (params: IAddLiquidityParams, options?: TransactionOptions) => Promise<string>;
         };
         addLiquidityAVAX: {
             (params: IAddLiquidityAVAXParams, options?: number | BigNumber | TransactionOptions): Promise<TransactionReceipt>;
@@ -718,6 +737,7 @@ declare module "@scom/oswap-trader-joe-contract/contracts/JoeRouter02.ts" {
                 amountAVAX: BigNumber;
                 liquidity: BigNumber;
             }>;
+            txData: (params: IAddLiquidityAVAXParams, options?: number | BigNumber | TransactionOptions) => Promise<string>;
         };
         factory: {
             (options?: TransactionOptions): Promise<string>;
@@ -743,6 +763,7 @@ declare module "@scom/oswap-trader-joe-contract/contracts/JoeRouter02.ts" {
                 amountA: BigNumber;
                 amountB: BigNumber;
             }>;
+            txData: (params: IRemoveLiquidityParams, options?: TransactionOptions) => Promise<string>;
         };
         removeLiquidityAVAX: {
             (params: IRemoveLiquidityAVAXParams, options?: TransactionOptions): Promise<TransactionReceipt>;
@@ -750,10 +771,12 @@ declare module "@scom/oswap-trader-joe-contract/contracts/JoeRouter02.ts" {
                 amountToken: BigNumber;
                 amountAVAX: BigNumber;
             }>;
+            txData: (params: IRemoveLiquidityAVAXParams, options?: TransactionOptions) => Promise<string>;
         };
         removeLiquidityAVAXSupportingFeeOnTransferTokens: {
             (params: IRemoveLiquidityAVAXSupportingFeeOnTransferTokensParams, options?: TransactionOptions): Promise<TransactionReceipt>;
             call: (params: IRemoveLiquidityAVAXSupportingFeeOnTransferTokensParams, options?: TransactionOptions) => Promise<BigNumber>;
+            txData: (params: IRemoveLiquidityAVAXSupportingFeeOnTransferTokensParams, options?: TransactionOptions) => Promise<string>;
         };
         removeLiquidityAVAXWithPermit: {
             (params: IRemoveLiquidityAVAXWithPermitParams, options?: TransactionOptions): Promise<TransactionReceipt>;
@@ -761,10 +784,12 @@ declare module "@scom/oswap-trader-joe-contract/contracts/JoeRouter02.ts" {
                 amountToken: BigNumber;
                 amountAVAX: BigNumber;
             }>;
+            txData: (params: IRemoveLiquidityAVAXWithPermitParams, options?: TransactionOptions) => Promise<string>;
         };
         removeLiquidityAVAXWithPermitSupportingFeeOnTransferTokens: {
             (params: IRemoveLiquidityAVAXWithPermitSupportingFeeOnTransferTokensParams, options?: TransactionOptions): Promise<TransactionReceipt>;
             call: (params: IRemoveLiquidityAVAXWithPermitSupportingFeeOnTransferTokensParams, options?: TransactionOptions) => Promise<BigNumber>;
+            txData: (params: IRemoveLiquidityAVAXWithPermitSupportingFeeOnTransferTokensParams, options?: TransactionOptions) => Promise<string>;
         };
         removeLiquidityWithPermit: {
             (params: IRemoveLiquidityWithPermitParams, options?: TransactionOptions): Promise<TransactionReceipt>;
@@ -772,42 +797,52 @@ declare module "@scom/oswap-trader-joe-contract/contracts/JoeRouter02.ts" {
                 amountA: BigNumber;
                 amountB: BigNumber;
             }>;
+            txData: (params: IRemoveLiquidityWithPermitParams, options?: TransactionOptions) => Promise<string>;
         };
         swapAVAXForExactTokens: {
             (params: ISwapAVAXForExactTokensParams, options?: number | BigNumber | TransactionOptions): Promise<TransactionReceipt>;
             call: (params: ISwapAVAXForExactTokensParams, options?: number | BigNumber | TransactionOptions) => Promise<BigNumber[]>;
+            txData: (params: ISwapAVAXForExactTokensParams, options?: number | BigNumber | TransactionOptions) => Promise<string>;
         };
         swapExactAVAXForTokens: {
             (params: ISwapExactAVAXForTokensParams, options?: number | BigNumber | TransactionOptions): Promise<TransactionReceipt>;
             call: (params: ISwapExactAVAXForTokensParams, options?: number | BigNumber | TransactionOptions) => Promise<BigNumber[]>;
+            txData: (params: ISwapExactAVAXForTokensParams, options?: number | BigNumber | TransactionOptions) => Promise<string>;
         };
         swapExactAVAXForTokensSupportingFeeOnTransferTokens: {
             (params: ISwapExactAVAXForTokensSupportingFeeOnTransferTokensParams, options?: number | BigNumber | TransactionOptions): Promise<TransactionReceipt>;
             call: (params: ISwapExactAVAXForTokensSupportingFeeOnTransferTokensParams, options?: number | BigNumber | TransactionOptions) => Promise<void>;
+            txData: (params: ISwapExactAVAXForTokensSupportingFeeOnTransferTokensParams, options?: number | BigNumber | TransactionOptions) => Promise<string>;
         };
         swapExactTokensForAVAX: {
             (params: ISwapExactTokensForAVAXParams, options?: TransactionOptions): Promise<TransactionReceipt>;
             call: (params: ISwapExactTokensForAVAXParams, options?: TransactionOptions) => Promise<BigNumber[]>;
+            txData: (params: ISwapExactTokensForAVAXParams, options?: TransactionOptions) => Promise<string>;
         };
         swapExactTokensForAVAXSupportingFeeOnTransferTokens: {
             (params: ISwapExactTokensForAVAXSupportingFeeOnTransferTokensParams, options?: TransactionOptions): Promise<TransactionReceipt>;
             call: (params: ISwapExactTokensForAVAXSupportingFeeOnTransferTokensParams, options?: TransactionOptions) => Promise<void>;
+            txData: (params: ISwapExactTokensForAVAXSupportingFeeOnTransferTokensParams, options?: TransactionOptions) => Promise<string>;
         };
         swapExactTokensForTokens: {
             (params: ISwapExactTokensForTokensParams, options?: TransactionOptions): Promise<TransactionReceipt>;
             call: (params: ISwapExactTokensForTokensParams, options?: TransactionOptions) => Promise<BigNumber[]>;
+            txData: (params: ISwapExactTokensForTokensParams, options?: TransactionOptions) => Promise<string>;
         };
         swapExactTokensForTokensSupportingFeeOnTransferTokens: {
             (params: ISwapExactTokensForTokensSupportingFeeOnTransferTokensParams, options?: TransactionOptions): Promise<TransactionReceipt>;
             call: (params: ISwapExactTokensForTokensSupportingFeeOnTransferTokensParams, options?: TransactionOptions) => Promise<void>;
+            txData: (params: ISwapExactTokensForTokensSupportingFeeOnTransferTokensParams, options?: TransactionOptions) => Promise<string>;
         };
         swapTokensForExactAVAX: {
             (params: ISwapTokensForExactAVAXParams, options?: TransactionOptions): Promise<TransactionReceipt>;
             call: (params: ISwapTokensForExactAVAXParams, options?: TransactionOptions) => Promise<BigNumber[]>;
+            txData: (params: ISwapTokensForExactAVAXParams, options?: TransactionOptions) => Promise<string>;
         };
         swapTokensForExactTokens: {
             (params: ISwapTokensForExactTokensParams, options?: TransactionOptions): Promise<TransactionReceipt>;
             call: (params: ISwapTokensForExactTokensParams, options?: TransactionOptions) => Promise<BigNumber[]>;
+            txData: (params: ISwapTokensForExactTokensParams, options?: TransactionOptions) => Promise<string>;
         };
         private assign;
     }

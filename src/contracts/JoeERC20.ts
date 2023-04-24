@@ -50,6 +50,7 @@ export class JoeERC20 extends _Contract{
     approve: {
         (params: IApproveParams, options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (params: IApproveParams, options?: TransactionOptions) => Promise<boolean>;
+        txData: (params: IApproveParams, options?: TransactionOptions) => Promise<string>;
     }
     balanceOf: {
         (param1:string, options?: TransactionOptions): Promise<BigNumber>;
@@ -66,6 +67,7 @@ export class JoeERC20 extends _Contract{
     permit: {
         (params: IPermitParams, options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (params: IPermitParams, options?: TransactionOptions) => Promise<void>;
+        txData: (params: IPermitParams, options?: TransactionOptions) => Promise<string>;
     }
     symbol: {
         (options?: TransactionOptions): Promise<string>;
@@ -76,10 +78,12 @@ export class JoeERC20 extends _Contract{
     transfer: {
         (params: ITransferParams, options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (params: ITransferParams, options?: TransactionOptions) => Promise<boolean>;
+        txData: (params: ITransferParams, options?: TransactionOptions) => Promise<string>;
     }
     transferFrom: {
         (params: ITransferFromParams, options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (params: ITransferFromParams, options?: TransactionOptions) => Promise<boolean>;
+        txData: (params: ITransferFromParams, options?: TransactionOptions) => Promise<string>;
     }
     private assign(){
         let DOMAIN_SEPARATOR_call = async (options?: TransactionOptions): Promise<string> => {
@@ -137,8 +141,13 @@ export class JoeERC20 extends _Contract{
             let result = await this.call('approve',approveParams(params),options);
             return result;
         }
+        let approve_txData = async (params: IApproveParams, options?: TransactionOptions): Promise<string> => {
+            let result = await this.txData('approve',approveParams(params),options);
+            return result;
+        }
         this.approve = Object.assign(approve_send, {
             call:approve_call
+            , txData:approve_txData
         });
         let permitParams = (params: IPermitParams) => [params.owner,params.spender,this.wallet.utils.toString(params.value),this.wallet.utils.toString(params.deadline),this.wallet.utils.toString(params.v),this.wallet.utils.stringToBytes32(params.r),this.wallet.utils.stringToBytes32(params.s)];
         let permit_send = async (params: IPermitParams, options?: TransactionOptions): Promise<TransactionReceipt> => {
@@ -149,8 +158,13 @@ export class JoeERC20 extends _Contract{
             let result = await this.call('permit',permitParams(params),options);
             return;
         }
+        let permit_txData = async (params: IPermitParams, options?: TransactionOptions): Promise<string> => {
+            let result = await this.txData('permit',permitParams(params),options);
+            return result;
+        }
         this.permit = Object.assign(permit_send, {
             call:permit_call
+            , txData:permit_txData
         });
         let transferParams = (params: ITransferParams) => [params.to,this.wallet.utils.toString(params.value)];
         let transfer_send = async (params: ITransferParams, options?: TransactionOptions): Promise<TransactionReceipt> => {
@@ -161,8 +175,13 @@ export class JoeERC20 extends _Contract{
             let result = await this.call('transfer',transferParams(params),options);
             return result;
         }
+        let transfer_txData = async (params: ITransferParams, options?: TransactionOptions): Promise<string> => {
+            let result = await this.txData('transfer',transferParams(params),options);
+            return result;
+        }
         this.transfer = Object.assign(transfer_send, {
             call:transfer_call
+            , txData:transfer_txData
         });
         let transferFromParams = (params: ITransferFromParams) => [params.from,params.to,this.wallet.utils.toString(params.value)];
         let transferFrom_send = async (params: ITransferFromParams, options?: TransactionOptions): Promise<TransactionReceipt> => {
@@ -173,8 +192,13 @@ export class JoeERC20 extends _Contract{
             let result = await this.call('transferFrom',transferFromParams(params),options);
             return result;
         }
+        let transferFrom_txData = async (params: ITransferFromParams, options?: TransactionOptions): Promise<string> => {
+            let result = await this.txData('transferFrom',transferFromParams(params),options);
+            return result;
+        }
         this.transferFrom = Object.assign(transferFrom_send, {
             call:transferFrom_call
+            , txData:transferFrom_txData
         });
     }
 }

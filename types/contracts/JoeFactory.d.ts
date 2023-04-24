@@ -22,6 +22,7 @@ export declare class JoeFactory extends _Contract {
     createPair: {
         (params: ICreatePairParams, options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (params: ICreatePairParams, options?: TransactionOptions) => Promise<string>;
+        txData: (params: ICreatePairParams, options?: TransactionOptions) => Promise<string>;
     };
     feeTo: {
         (options?: TransactionOptions): Promise<string>;
@@ -41,14 +42,17 @@ export declare class JoeFactory extends _Contract {
     setFeeTo: {
         (feeTo: string, options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (feeTo: string, options?: TransactionOptions) => Promise<void>;
+        txData: (feeTo: string, options?: TransactionOptions) => Promise<string>;
     };
     setFeeToSetter: {
         (feeToSetter: string, options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (feeToSetter: string, options?: TransactionOptions) => Promise<void>;
+        txData: (feeToSetter: string, options?: TransactionOptions) => Promise<string>;
     };
     setMigrator: {
         (migrator: string, options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (migrator: string, options?: TransactionOptions) => Promise<void>;
+        txData: (migrator: string, options?: TransactionOptions) => Promise<string>;
     };
     private assign;
 }

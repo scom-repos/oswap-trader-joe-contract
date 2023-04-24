@@ -33,6 +33,7 @@ export class JoeFactory extends _Contract{
     createPair: {
         (params: ICreatePairParams, options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (params: ICreatePairParams, options?: TransactionOptions) => Promise<string>;
+        txData: (params: ICreatePairParams, options?: TransactionOptions) => Promise<string>;
     }
     feeTo: {
         (options?: TransactionOptions): Promise<string>;
@@ -52,14 +53,17 @@ export class JoeFactory extends _Contract{
     setFeeTo: {
         (feeTo:string, options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (feeTo:string, options?: TransactionOptions) => Promise<void>;
+        txData: (feeTo:string, options?: TransactionOptions) => Promise<string>;
     }
     setFeeToSetter: {
         (feeToSetter:string, options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (feeToSetter:string, options?: TransactionOptions) => Promise<void>;
+        txData: (feeToSetter:string, options?: TransactionOptions) => Promise<string>;
     }
     setMigrator: {
         (migrator:string, options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (migrator:string, options?: TransactionOptions) => Promise<void>;
+        txData: (migrator:string, options?: TransactionOptions) => Promise<string>;
     }
     private assign(){
         let allPairs_call = async (param1:number|BigNumber, options?: TransactionOptions): Promise<string> => {
@@ -107,8 +111,13 @@ export class JoeFactory extends _Contract{
             let result = await this.call('createPair',createPairParams(params),options);
             return result;
         }
+        let createPair_txData = async (params: ICreatePairParams, options?: TransactionOptions): Promise<string> => {
+            let result = await this.txData('createPair',createPairParams(params),options);
+            return result;
+        }
         this.createPair = Object.assign(createPair_send, {
             call:createPair_call
+            , txData:createPair_txData
         });
         let setFeeTo_send = async (feeTo:string, options?: TransactionOptions): Promise<TransactionReceipt> => {
             let result = await this.send('setFeeTo',[feeTo],options);
@@ -118,8 +127,13 @@ export class JoeFactory extends _Contract{
             let result = await this.call('setFeeTo',[feeTo],options);
             return;
         }
+        let setFeeTo_txData = async (feeTo:string, options?: TransactionOptions): Promise<string> => {
+            let result = await this.txData('setFeeTo',[feeTo],options);
+            return result;
+        }
         this.setFeeTo = Object.assign(setFeeTo_send, {
             call:setFeeTo_call
+            , txData:setFeeTo_txData
         });
         let setFeeToSetter_send = async (feeToSetter:string, options?: TransactionOptions): Promise<TransactionReceipt> => {
             let result = await this.send('setFeeToSetter',[feeToSetter],options);
@@ -129,8 +143,13 @@ export class JoeFactory extends _Contract{
             let result = await this.call('setFeeToSetter',[feeToSetter],options);
             return;
         }
+        let setFeeToSetter_txData = async (feeToSetter:string, options?: TransactionOptions): Promise<string> => {
+            let result = await this.txData('setFeeToSetter',[feeToSetter],options);
+            return result;
+        }
         this.setFeeToSetter = Object.assign(setFeeToSetter_send, {
             call:setFeeToSetter_call
+            , txData:setFeeToSetter_txData
         });
         let setMigrator_send = async (migrator:string, options?: TransactionOptions): Promise<TransactionReceipt> => {
             let result = await this.send('setMigrator',[migrator],options);
@@ -140,8 +159,13 @@ export class JoeFactory extends _Contract{
             let result = await this.call('setMigrator',[migrator],options);
             return;
         }
+        let setMigrator_txData = async (migrator:string, options?: TransactionOptions): Promise<string> => {
+            let result = await this.txData('setMigrator',[migrator],options);
+            return result;
+        }
         this.setMigrator = Object.assign(setMigrator_send, {
             call:setMigrator_call
+            , txData:setMigrator_txData
         });
     }
 }

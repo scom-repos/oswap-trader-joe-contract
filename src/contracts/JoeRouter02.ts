@@ -38,10 +38,12 @@ export class JoeRouter02 extends _Contract{
     addLiquidity: {
         (params: IAddLiquidityParams, options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (params: IAddLiquidityParams, options?: TransactionOptions) => Promise<{amountA:BigNumber,amountB:BigNumber,liquidity:BigNumber}>;
+        txData: (params: IAddLiquidityParams, options?: TransactionOptions) => Promise<string>;
     }
     addLiquidityAVAX: {
         (params: IAddLiquidityAVAXParams, options?: number|BigNumber|TransactionOptions): Promise<TransactionReceipt>;
         call: (params: IAddLiquidityAVAXParams, options?: number|BigNumber|TransactionOptions) => Promise<{amountToken:BigNumber,amountAVAX:BigNumber,liquidity:BigNumber}>;
+        txData: (params: IAddLiquidityAVAXParams, options?: number|BigNumber|TransactionOptions) => Promise<string>;
     }
     factory: {
         (options?: TransactionOptions): Promise<string>;
@@ -64,62 +66,77 @@ export class JoeRouter02 extends _Contract{
     removeLiquidity: {
         (params: IRemoveLiquidityParams, options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (params: IRemoveLiquidityParams, options?: TransactionOptions) => Promise<{amountA:BigNumber,amountB:BigNumber}>;
+        txData: (params: IRemoveLiquidityParams, options?: TransactionOptions) => Promise<string>;
     }
     removeLiquidityAVAX: {
         (params: IRemoveLiquidityAVAXParams, options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (params: IRemoveLiquidityAVAXParams, options?: TransactionOptions) => Promise<{amountToken:BigNumber,amountAVAX:BigNumber}>;
+        txData: (params: IRemoveLiquidityAVAXParams, options?: TransactionOptions) => Promise<string>;
     }
     removeLiquidityAVAXSupportingFeeOnTransferTokens: {
         (params: IRemoveLiquidityAVAXSupportingFeeOnTransferTokensParams, options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (params: IRemoveLiquidityAVAXSupportingFeeOnTransferTokensParams, options?: TransactionOptions) => Promise<BigNumber>;
+        txData: (params: IRemoveLiquidityAVAXSupportingFeeOnTransferTokensParams, options?: TransactionOptions) => Promise<string>;
     }
     removeLiquidityAVAXWithPermit: {
         (params: IRemoveLiquidityAVAXWithPermitParams, options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (params: IRemoveLiquidityAVAXWithPermitParams, options?: TransactionOptions) => Promise<{amountToken:BigNumber,amountAVAX:BigNumber}>;
+        txData: (params: IRemoveLiquidityAVAXWithPermitParams, options?: TransactionOptions) => Promise<string>;
     }
     removeLiquidityAVAXWithPermitSupportingFeeOnTransferTokens: {
         (params: IRemoveLiquidityAVAXWithPermitSupportingFeeOnTransferTokensParams, options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (params: IRemoveLiquidityAVAXWithPermitSupportingFeeOnTransferTokensParams, options?: TransactionOptions) => Promise<BigNumber>;
+        txData: (params: IRemoveLiquidityAVAXWithPermitSupportingFeeOnTransferTokensParams, options?: TransactionOptions) => Promise<string>;
     }
     removeLiquidityWithPermit: {
         (params: IRemoveLiquidityWithPermitParams, options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (params: IRemoveLiquidityWithPermitParams, options?: TransactionOptions) => Promise<{amountA:BigNumber,amountB:BigNumber}>;
+        txData: (params: IRemoveLiquidityWithPermitParams, options?: TransactionOptions) => Promise<string>;
     }
     swapAVAXForExactTokens: {
         (params: ISwapAVAXForExactTokensParams, options?: number|BigNumber|TransactionOptions): Promise<TransactionReceipt>;
         call: (params: ISwapAVAXForExactTokensParams, options?: number|BigNumber|TransactionOptions) => Promise<BigNumber[]>;
+        txData: (params: ISwapAVAXForExactTokensParams, options?: number|BigNumber|TransactionOptions) => Promise<string>;
     }
     swapExactAVAXForTokens: {
         (params: ISwapExactAVAXForTokensParams, options?: number|BigNumber|TransactionOptions): Promise<TransactionReceipt>;
         call: (params: ISwapExactAVAXForTokensParams, options?: number|BigNumber|TransactionOptions) => Promise<BigNumber[]>;
+        txData: (params: ISwapExactAVAXForTokensParams, options?: number|BigNumber|TransactionOptions) => Promise<string>;
     }
     swapExactAVAXForTokensSupportingFeeOnTransferTokens: {
         (params: ISwapExactAVAXForTokensSupportingFeeOnTransferTokensParams, options?: number|BigNumber|TransactionOptions): Promise<TransactionReceipt>;
         call: (params: ISwapExactAVAXForTokensSupportingFeeOnTransferTokensParams, options?: number|BigNumber|TransactionOptions) => Promise<void>;
+        txData: (params: ISwapExactAVAXForTokensSupportingFeeOnTransferTokensParams, options?: number|BigNumber|TransactionOptions) => Promise<string>;
     }
     swapExactTokensForAVAX: {
         (params: ISwapExactTokensForAVAXParams, options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (params: ISwapExactTokensForAVAXParams, options?: TransactionOptions) => Promise<BigNumber[]>;
+        txData: (params: ISwapExactTokensForAVAXParams, options?: TransactionOptions) => Promise<string>;
     }
     swapExactTokensForAVAXSupportingFeeOnTransferTokens: {
         (params: ISwapExactTokensForAVAXSupportingFeeOnTransferTokensParams, options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (params: ISwapExactTokensForAVAXSupportingFeeOnTransferTokensParams, options?: TransactionOptions) => Promise<void>;
+        txData: (params: ISwapExactTokensForAVAXSupportingFeeOnTransferTokensParams, options?: TransactionOptions) => Promise<string>;
     }
     swapExactTokensForTokens: {
         (params: ISwapExactTokensForTokensParams, options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (params: ISwapExactTokensForTokensParams, options?: TransactionOptions) => Promise<BigNumber[]>;
+        txData: (params: ISwapExactTokensForTokensParams, options?: TransactionOptions) => Promise<string>;
     }
     swapExactTokensForTokensSupportingFeeOnTransferTokens: {
         (params: ISwapExactTokensForTokensSupportingFeeOnTransferTokensParams, options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (params: ISwapExactTokensForTokensSupportingFeeOnTransferTokensParams, options?: TransactionOptions) => Promise<void>;
+        txData: (params: ISwapExactTokensForTokensSupportingFeeOnTransferTokensParams, options?: TransactionOptions) => Promise<string>;
     }
     swapTokensForExactAVAX: {
         (params: ISwapTokensForExactAVAXParams, options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (params: ISwapTokensForExactAVAXParams, options?: TransactionOptions) => Promise<BigNumber[]>;
+        txData: (params: ISwapTokensForExactAVAXParams, options?: TransactionOptions) => Promise<string>;
     }
     swapTokensForExactTokens: {
         (params: ISwapTokensForExactTokensParams, options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (params: ISwapTokensForExactTokensParams, options?: TransactionOptions) => Promise<BigNumber[]>;
+        txData: (params: ISwapTokensForExactTokensParams, options?: TransactionOptions) => Promise<string>;
     }
     private assign(){
         let WAVAX_call = async (options?: TransactionOptions): Promise<string> => {
@@ -175,8 +192,13 @@ export class JoeRouter02 extends _Contract{
                 liquidity: new BigNumber(result.liquidity)
             };
         }
+        let addLiquidity_txData = async (params: IAddLiquidityParams, options?: TransactionOptions): Promise<string> => {
+            let result = await this.txData('addLiquidity',addLiquidityParams(params),options);
+            return result;
+        }
         this.addLiquidity = Object.assign(addLiquidity_send, {
             call:addLiquidity_call
+            , txData:addLiquidity_txData
         });
         let addLiquidityAVAXParams = (params: IAddLiquidityAVAXParams) => [params.token,this.wallet.utils.toString(params.amountTokenDesired),this.wallet.utils.toString(params.amountTokenMin),this.wallet.utils.toString(params.amountAVAXMin),params.to,this.wallet.utils.toString(params.deadline)];
         let addLiquidityAVAX_send = async (params: IAddLiquidityAVAXParams, options?: number|BigNumber|TransactionOptions): Promise<TransactionReceipt> => {
@@ -191,8 +213,13 @@ export class JoeRouter02 extends _Contract{
                 liquidity: new BigNumber(result.liquidity)
             };
         }
+        let addLiquidityAVAX_txData = async (params: IAddLiquidityAVAXParams, options?: number|BigNumber|TransactionOptions): Promise<string> => {
+            let result = await this.txData('addLiquidityAVAX',addLiquidityAVAXParams(params),options);
+            return result;
+        }
         this.addLiquidityAVAX = Object.assign(addLiquidityAVAX_send, {
             call:addLiquidityAVAX_call
+            , txData:addLiquidityAVAX_txData
         });
         let removeLiquidityParams = (params: IRemoveLiquidityParams) => [params.tokenA,params.tokenB,this.wallet.utils.toString(params.liquidity),this.wallet.utils.toString(params.amountAMin),this.wallet.utils.toString(params.amountBMin),params.to,this.wallet.utils.toString(params.deadline)];
         let removeLiquidity_send = async (params: IRemoveLiquidityParams, options?: TransactionOptions): Promise<TransactionReceipt> => {
@@ -206,8 +233,13 @@ export class JoeRouter02 extends _Contract{
                 amountB: new BigNumber(result.amountB)
             };
         }
+        let removeLiquidity_txData = async (params: IRemoveLiquidityParams, options?: TransactionOptions): Promise<string> => {
+            let result = await this.txData('removeLiquidity',removeLiquidityParams(params),options);
+            return result;
+        }
         this.removeLiquidity = Object.assign(removeLiquidity_send, {
             call:removeLiquidity_call
+            , txData:removeLiquidity_txData
         });
         let removeLiquidityAVAXParams = (params: IRemoveLiquidityAVAXParams) => [params.token,this.wallet.utils.toString(params.liquidity),this.wallet.utils.toString(params.amountTokenMin),this.wallet.utils.toString(params.amountAVAXMin),params.to,this.wallet.utils.toString(params.deadline)];
         let removeLiquidityAVAX_send = async (params: IRemoveLiquidityAVAXParams, options?: TransactionOptions): Promise<TransactionReceipt> => {
@@ -221,8 +253,13 @@ export class JoeRouter02 extends _Contract{
                 amountAVAX: new BigNumber(result.amountAVAX)
             };
         }
+        let removeLiquidityAVAX_txData = async (params: IRemoveLiquidityAVAXParams, options?: TransactionOptions): Promise<string> => {
+            let result = await this.txData('removeLiquidityAVAX',removeLiquidityAVAXParams(params),options);
+            return result;
+        }
         this.removeLiquidityAVAX = Object.assign(removeLiquidityAVAX_send, {
             call:removeLiquidityAVAX_call
+            , txData:removeLiquidityAVAX_txData
         });
         let removeLiquidityAVAXSupportingFeeOnTransferTokensParams = (params: IRemoveLiquidityAVAXSupportingFeeOnTransferTokensParams) => [params.token,this.wallet.utils.toString(params.liquidity),this.wallet.utils.toString(params.amountTokenMin),this.wallet.utils.toString(params.amountAVAXMin),params.to,this.wallet.utils.toString(params.deadline)];
         let removeLiquidityAVAXSupportingFeeOnTransferTokens_send = async (params: IRemoveLiquidityAVAXSupportingFeeOnTransferTokensParams, options?: TransactionOptions): Promise<TransactionReceipt> => {
@@ -233,8 +270,13 @@ export class JoeRouter02 extends _Contract{
             let result = await this.call('removeLiquidityAVAXSupportingFeeOnTransferTokens',removeLiquidityAVAXSupportingFeeOnTransferTokensParams(params),options);
             return new BigNumber(result);
         }
+        let removeLiquidityAVAXSupportingFeeOnTransferTokens_txData = async (params: IRemoveLiquidityAVAXSupportingFeeOnTransferTokensParams, options?: TransactionOptions): Promise<string> => {
+            let result = await this.txData('removeLiquidityAVAXSupportingFeeOnTransferTokens',removeLiquidityAVAXSupportingFeeOnTransferTokensParams(params),options);
+            return result;
+        }
         this.removeLiquidityAVAXSupportingFeeOnTransferTokens = Object.assign(removeLiquidityAVAXSupportingFeeOnTransferTokens_send, {
             call:removeLiquidityAVAXSupportingFeeOnTransferTokens_call
+            , txData:removeLiquidityAVAXSupportingFeeOnTransferTokens_txData
         });
         let removeLiquidityAVAXWithPermitParams = (params: IRemoveLiquidityAVAXWithPermitParams) => [params.token,this.wallet.utils.toString(params.liquidity),this.wallet.utils.toString(params.amountTokenMin),this.wallet.utils.toString(params.amountAVAXMin),params.to,this.wallet.utils.toString(params.deadline),params.approveMax,this.wallet.utils.toString(params.v),this.wallet.utils.stringToBytes32(params.r),this.wallet.utils.stringToBytes32(params.s)];
         let removeLiquidityAVAXWithPermit_send = async (params: IRemoveLiquidityAVAXWithPermitParams, options?: TransactionOptions): Promise<TransactionReceipt> => {
@@ -248,8 +290,13 @@ export class JoeRouter02 extends _Contract{
                 amountAVAX: new BigNumber(result.amountAVAX)
             };
         }
+        let removeLiquidityAVAXWithPermit_txData = async (params: IRemoveLiquidityAVAXWithPermitParams, options?: TransactionOptions): Promise<string> => {
+            let result = await this.txData('removeLiquidityAVAXWithPermit',removeLiquidityAVAXWithPermitParams(params),options);
+            return result;
+        }
         this.removeLiquidityAVAXWithPermit = Object.assign(removeLiquidityAVAXWithPermit_send, {
             call:removeLiquidityAVAXWithPermit_call
+            , txData:removeLiquidityAVAXWithPermit_txData
         });
         let removeLiquidityAVAXWithPermitSupportingFeeOnTransferTokensParams = (params: IRemoveLiquidityAVAXWithPermitSupportingFeeOnTransferTokensParams) => [params.token,this.wallet.utils.toString(params.liquidity),this.wallet.utils.toString(params.amountTokenMin),this.wallet.utils.toString(params.amountAVAXMin),params.to,this.wallet.utils.toString(params.deadline),params.approveMax,this.wallet.utils.toString(params.v),this.wallet.utils.stringToBytes32(params.r),this.wallet.utils.stringToBytes32(params.s)];
         let removeLiquidityAVAXWithPermitSupportingFeeOnTransferTokens_send = async (params: IRemoveLiquidityAVAXWithPermitSupportingFeeOnTransferTokensParams, options?: TransactionOptions): Promise<TransactionReceipt> => {
@@ -260,8 +307,13 @@ export class JoeRouter02 extends _Contract{
             let result = await this.call('removeLiquidityAVAXWithPermitSupportingFeeOnTransferTokens',removeLiquidityAVAXWithPermitSupportingFeeOnTransferTokensParams(params),options);
             return new BigNumber(result);
         }
+        let removeLiquidityAVAXWithPermitSupportingFeeOnTransferTokens_txData = async (params: IRemoveLiquidityAVAXWithPermitSupportingFeeOnTransferTokensParams, options?: TransactionOptions): Promise<string> => {
+            let result = await this.txData('removeLiquidityAVAXWithPermitSupportingFeeOnTransferTokens',removeLiquidityAVAXWithPermitSupportingFeeOnTransferTokensParams(params),options);
+            return result;
+        }
         this.removeLiquidityAVAXWithPermitSupportingFeeOnTransferTokens = Object.assign(removeLiquidityAVAXWithPermitSupportingFeeOnTransferTokens_send, {
             call:removeLiquidityAVAXWithPermitSupportingFeeOnTransferTokens_call
+            , txData:removeLiquidityAVAXWithPermitSupportingFeeOnTransferTokens_txData
         });
         let removeLiquidityWithPermitParams = (params: IRemoveLiquidityWithPermitParams) => [params.tokenA,params.tokenB,this.wallet.utils.toString(params.liquidity),this.wallet.utils.toString(params.amountAMin),this.wallet.utils.toString(params.amountBMin),params.to,this.wallet.utils.toString(params.deadline),params.approveMax,this.wallet.utils.toString(params.v),this.wallet.utils.stringToBytes32(params.r),this.wallet.utils.stringToBytes32(params.s)];
         let removeLiquidityWithPermit_send = async (params: IRemoveLiquidityWithPermitParams, options?: TransactionOptions): Promise<TransactionReceipt> => {
@@ -275,8 +327,13 @@ export class JoeRouter02 extends _Contract{
                 amountB: new BigNumber(result.amountB)
             };
         }
+        let removeLiquidityWithPermit_txData = async (params: IRemoveLiquidityWithPermitParams, options?: TransactionOptions): Promise<string> => {
+            let result = await this.txData('removeLiquidityWithPermit',removeLiquidityWithPermitParams(params),options);
+            return result;
+        }
         this.removeLiquidityWithPermit = Object.assign(removeLiquidityWithPermit_send, {
             call:removeLiquidityWithPermit_call
+            , txData:removeLiquidityWithPermit_txData
         });
         let swapAVAXForExactTokensParams = (params: ISwapAVAXForExactTokensParams) => [this.wallet.utils.toString(params.amountOut),params.path,params.to,this.wallet.utils.toString(params.deadline)];
         let swapAVAXForExactTokens_send = async (params: ISwapAVAXForExactTokensParams, options?: number|BigNumber|TransactionOptions): Promise<TransactionReceipt> => {
@@ -287,8 +344,13 @@ export class JoeRouter02 extends _Contract{
             let result = await this.call('swapAVAXForExactTokens',swapAVAXForExactTokensParams(params),options);
             return result.map(e=>new BigNumber(e));
         }
+        let swapAVAXForExactTokens_txData = async (params: ISwapAVAXForExactTokensParams, options?: number|BigNumber|TransactionOptions): Promise<string> => {
+            let result = await this.txData('swapAVAXForExactTokens',swapAVAXForExactTokensParams(params),options);
+            return result;
+        }
         this.swapAVAXForExactTokens = Object.assign(swapAVAXForExactTokens_send, {
             call:swapAVAXForExactTokens_call
+            , txData:swapAVAXForExactTokens_txData
         });
         let swapExactAVAXForTokensParams = (params: ISwapExactAVAXForTokensParams) => [this.wallet.utils.toString(params.amountOutMin),params.path,params.to,this.wallet.utils.toString(params.deadline)];
         let swapExactAVAXForTokens_send = async (params: ISwapExactAVAXForTokensParams, options?: number|BigNumber|TransactionOptions): Promise<TransactionReceipt> => {
@@ -299,8 +361,13 @@ export class JoeRouter02 extends _Contract{
             let result = await this.call('swapExactAVAXForTokens',swapExactAVAXForTokensParams(params),options);
             return result.map(e=>new BigNumber(e));
         }
+        let swapExactAVAXForTokens_txData = async (params: ISwapExactAVAXForTokensParams, options?: number|BigNumber|TransactionOptions): Promise<string> => {
+            let result = await this.txData('swapExactAVAXForTokens',swapExactAVAXForTokensParams(params),options);
+            return result;
+        }
         this.swapExactAVAXForTokens = Object.assign(swapExactAVAXForTokens_send, {
             call:swapExactAVAXForTokens_call
+            , txData:swapExactAVAXForTokens_txData
         });
         let swapExactAVAXForTokensSupportingFeeOnTransferTokensParams = (params: ISwapExactAVAXForTokensSupportingFeeOnTransferTokensParams) => [this.wallet.utils.toString(params.amountOutMin),params.path,params.to,this.wallet.utils.toString(params.deadline)];
         let swapExactAVAXForTokensSupportingFeeOnTransferTokens_send = async (params: ISwapExactAVAXForTokensSupportingFeeOnTransferTokensParams, options?: number|BigNumber|TransactionOptions): Promise<TransactionReceipt> => {
@@ -311,8 +378,13 @@ export class JoeRouter02 extends _Contract{
             let result = await this.call('swapExactAVAXForTokensSupportingFeeOnTransferTokens',swapExactAVAXForTokensSupportingFeeOnTransferTokensParams(params),options);
             return;
         }
+        let swapExactAVAXForTokensSupportingFeeOnTransferTokens_txData = async (params: ISwapExactAVAXForTokensSupportingFeeOnTransferTokensParams, options?: number|BigNumber|TransactionOptions): Promise<string> => {
+            let result = await this.txData('swapExactAVAXForTokensSupportingFeeOnTransferTokens',swapExactAVAXForTokensSupportingFeeOnTransferTokensParams(params),options);
+            return result;
+        }
         this.swapExactAVAXForTokensSupportingFeeOnTransferTokens = Object.assign(swapExactAVAXForTokensSupportingFeeOnTransferTokens_send, {
             call:swapExactAVAXForTokensSupportingFeeOnTransferTokens_call
+            , txData:swapExactAVAXForTokensSupportingFeeOnTransferTokens_txData
         });
         let swapExactTokensForAVAXParams = (params: ISwapExactTokensForAVAXParams) => [this.wallet.utils.toString(params.amountIn),this.wallet.utils.toString(params.amountOutMin),params.path,params.to,this.wallet.utils.toString(params.deadline)];
         let swapExactTokensForAVAX_send = async (params: ISwapExactTokensForAVAXParams, options?: TransactionOptions): Promise<TransactionReceipt> => {
@@ -323,8 +395,13 @@ export class JoeRouter02 extends _Contract{
             let result = await this.call('swapExactTokensForAVAX',swapExactTokensForAVAXParams(params),options);
             return result.map(e=>new BigNumber(e));
         }
+        let swapExactTokensForAVAX_txData = async (params: ISwapExactTokensForAVAXParams, options?: TransactionOptions): Promise<string> => {
+            let result = await this.txData('swapExactTokensForAVAX',swapExactTokensForAVAXParams(params),options);
+            return result;
+        }
         this.swapExactTokensForAVAX = Object.assign(swapExactTokensForAVAX_send, {
             call:swapExactTokensForAVAX_call
+            , txData:swapExactTokensForAVAX_txData
         });
         let swapExactTokensForAVAXSupportingFeeOnTransferTokensParams = (params: ISwapExactTokensForAVAXSupportingFeeOnTransferTokensParams) => [this.wallet.utils.toString(params.amountIn),this.wallet.utils.toString(params.amountOutMin),params.path,params.to,this.wallet.utils.toString(params.deadline)];
         let swapExactTokensForAVAXSupportingFeeOnTransferTokens_send = async (params: ISwapExactTokensForAVAXSupportingFeeOnTransferTokensParams, options?: TransactionOptions): Promise<TransactionReceipt> => {
@@ -335,8 +412,13 @@ export class JoeRouter02 extends _Contract{
             let result = await this.call('swapExactTokensForAVAXSupportingFeeOnTransferTokens',swapExactTokensForAVAXSupportingFeeOnTransferTokensParams(params),options);
             return;
         }
+        let swapExactTokensForAVAXSupportingFeeOnTransferTokens_txData = async (params: ISwapExactTokensForAVAXSupportingFeeOnTransferTokensParams, options?: TransactionOptions): Promise<string> => {
+            let result = await this.txData('swapExactTokensForAVAXSupportingFeeOnTransferTokens',swapExactTokensForAVAXSupportingFeeOnTransferTokensParams(params),options);
+            return result;
+        }
         this.swapExactTokensForAVAXSupportingFeeOnTransferTokens = Object.assign(swapExactTokensForAVAXSupportingFeeOnTransferTokens_send, {
             call:swapExactTokensForAVAXSupportingFeeOnTransferTokens_call
+            , txData:swapExactTokensForAVAXSupportingFeeOnTransferTokens_txData
         });
         let swapExactTokensForTokensParams = (params: ISwapExactTokensForTokensParams) => [this.wallet.utils.toString(params.amountIn),this.wallet.utils.toString(params.amountOutMin),params.path,params.to,this.wallet.utils.toString(params.deadline)];
         let swapExactTokensForTokens_send = async (params: ISwapExactTokensForTokensParams, options?: TransactionOptions): Promise<TransactionReceipt> => {
@@ -347,8 +429,13 @@ export class JoeRouter02 extends _Contract{
             let result = await this.call('swapExactTokensForTokens',swapExactTokensForTokensParams(params),options);
             return result.map(e=>new BigNumber(e));
         }
+        let swapExactTokensForTokens_txData = async (params: ISwapExactTokensForTokensParams, options?: TransactionOptions): Promise<string> => {
+            let result = await this.txData('swapExactTokensForTokens',swapExactTokensForTokensParams(params),options);
+            return result;
+        }
         this.swapExactTokensForTokens = Object.assign(swapExactTokensForTokens_send, {
             call:swapExactTokensForTokens_call
+            , txData:swapExactTokensForTokens_txData
         });
         let swapExactTokensForTokensSupportingFeeOnTransferTokensParams = (params: ISwapExactTokensForTokensSupportingFeeOnTransferTokensParams) => [this.wallet.utils.toString(params.amountIn),this.wallet.utils.toString(params.amountOutMin),params.path,params.to,this.wallet.utils.toString(params.deadline)];
         let swapExactTokensForTokensSupportingFeeOnTransferTokens_send = async (params: ISwapExactTokensForTokensSupportingFeeOnTransferTokensParams, options?: TransactionOptions): Promise<TransactionReceipt> => {
@@ -359,8 +446,13 @@ export class JoeRouter02 extends _Contract{
             let result = await this.call('swapExactTokensForTokensSupportingFeeOnTransferTokens',swapExactTokensForTokensSupportingFeeOnTransferTokensParams(params),options);
             return;
         }
+        let swapExactTokensForTokensSupportingFeeOnTransferTokens_txData = async (params: ISwapExactTokensForTokensSupportingFeeOnTransferTokensParams, options?: TransactionOptions): Promise<string> => {
+            let result = await this.txData('swapExactTokensForTokensSupportingFeeOnTransferTokens',swapExactTokensForTokensSupportingFeeOnTransferTokensParams(params),options);
+            return result;
+        }
         this.swapExactTokensForTokensSupportingFeeOnTransferTokens = Object.assign(swapExactTokensForTokensSupportingFeeOnTransferTokens_send, {
             call:swapExactTokensForTokensSupportingFeeOnTransferTokens_call
+            , txData:swapExactTokensForTokensSupportingFeeOnTransferTokens_txData
         });
         let swapTokensForExactAVAXParams = (params: ISwapTokensForExactAVAXParams) => [this.wallet.utils.toString(params.amountOut),this.wallet.utils.toString(params.amountInMax),params.path,params.to,this.wallet.utils.toString(params.deadline)];
         let swapTokensForExactAVAX_send = async (params: ISwapTokensForExactAVAXParams, options?: TransactionOptions): Promise<TransactionReceipt> => {
@@ -371,8 +463,13 @@ export class JoeRouter02 extends _Contract{
             let result = await this.call('swapTokensForExactAVAX',swapTokensForExactAVAXParams(params),options);
             return result.map(e=>new BigNumber(e));
         }
+        let swapTokensForExactAVAX_txData = async (params: ISwapTokensForExactAVAXParams, options?: TransactionOptions): Promise<string> => {
+            let result = await this.txData('swapTokensForExactAVAX',swapTokensForExactAVAXParams(params),options);
+            return result;
+        }
         this.swapTokensForExactAVAX = Object.assign(swapTokensForExactAVAX_send, {
             call:swapTokensForExactAVAX_call
+            , txData:swapTokensForExactAVAX_txData
         });
         let swapTokensForExactTokensParams = (params: ISwapTokensForExactTokensParams) => [this.wallet.utils.toString(params.amountOut),this.wallet.utils.toString(params.amountInMax),params.path,params.to,this.wallet.utils.toString(params.deadline)];
         let swapTokensForExactTokens_send = async (params: ISwapTokensForExactTokensParams, options?: TransactionOptions): Promise<TransactionReceipt> => {
@@ -383,8 +480,13 @@ export class JoeRouter02 extends _Contract{
             let result = await this.call('swapTokensForExactTokens',swapTokensForExactTokensParams(params),options);
             return result.map(e=>new BigNumber(e));
         }
+        let swapTokensForExactTokens_txData = async (params: ISwapTokensForExactTokensParams, options?: TransactionOptions): Promise<string> => {
+            let result = await this.txData('swapTokensForExactTokens',swapTokensForExactTokensParams(params),options);
+            return result;
+        }
         this.swapTokensForExactTokens = Object.assign(swapTokensForExactTokens_send, {
             call:swapTokensForExactTokens_call
+            , txData:swapTokensForExactTokens_txData
         });
     }
 }
