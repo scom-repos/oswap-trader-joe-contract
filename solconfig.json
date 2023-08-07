@@ -1,8 +1,0 @@
-{
-    "version": "0.6.12",
-    "optimizerRuns": 200,
-    "sourceDir": "contracts",
-    "outputDir": "src/contracts",
-    "outputOptions": {"txData":true},
-    "outputObjects": "bytecode"
-}

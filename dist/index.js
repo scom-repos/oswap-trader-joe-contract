@@ -177,8 +177,8 @@ define("@scom/oswap-trader-joe-contract/contracts/JoeERC20.ts", ["require", "exp
             });
         }
     }
-    exports.JoeERC20 = JoeERC20;
     JoeERC20._abi = JoeERC20_json_1.default.abi;
+    exports.JoeERC20 = JoeERC20;
 });
 define("@scom/oswap-trader-joe-contract/contracts/JoeFactory.json.ts", ["require", "exports"], function (require, exports) {
     "use strict";
@@ -332,8 +332,8 @@ define("@scom/oswap-trader-joe-contract/contracts/JoeFactory.ts", ["require", "e
             });
         }
     }
-    exports.JoeFactory = JoeFactory;
     JoeFactory._abi = JoeFactory_json_1.default.abi;
+    exports.JoeFactory = JoeFactory;
 });
 define("@scom/oswap-trader-joe-contract/contracts/JoePair.json.ts", ["require", "exports"], function (require, exports) {
     "use strict";
@@ -728,8 +728,8 @@ define("@scom/oswap-trader-joe-contract/contracts/JoePair.ts", ["require", "expo
             });
         }
     }
-    exports.JoePair = JoePair;
     JoePair._abi = JoePair_json_1.default.abi;
+    exports.JoePair = JoePair;
 });
 define("@scom/oswap-trader-joe-contract/contracts/JoeRouter02.json.ts", ["require", "exports"], function (require, exports) {
     "use strict";
@@ -1131,8 +1131,8 @@ define("@scom/oswap-trader-joe-contract/contracts/JoeRouter02.ts", ["require", "
             });
         }
     }
-    exports.JoeRouter02 = JoeRouter02;
     JoeRouter02._abi = JoeRouter02_json_1.default.abi;
+    exports.JoeRouter02 = JoeRouter02;
 });
 define("@scom/oswap-trader-joe-contract/contracts/index.ts", ["require", "exports", "@scom/oswap-trader-joe-contract/contracts/JoeERC20.ts", "@scom/oswap-trader-joe-contract/contracts/JoeFactory.ts", "@scom/oswap-trader-joe-contract/contracts/JoePair.ts", "@scom/oswap-trader-joe-contract/contracts/JoeRouter02.ts"], function (require, exports, JoeERC20_1, JoeFactory_1, JoePair_1, JoeRouter02_1) {
     "use strict";
@@ -1147,6 +1147,5 @@ define("@scom/oswap-trader-joe-contract", ["require", "exports", "@scom/oswap-tr
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.Contracts = void 0;
-    ///<amd-module name='@scom/oswap-trader-joe-contract'/> 
     exports.Contracts = Contracts;
 });
